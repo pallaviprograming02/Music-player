@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Music Player</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="player-shell">
+    <section class="player-card">
+      <div class="cover-frame">
+        <img id="cover" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80" alt="Album cover" />
+      </div>
+      <div class="track-info">
+        <p class="label">Now playing</p>
+        <h1 id="title">Loading...</h1>
+        <p id="artist">Artist</p>
+        <p id="status" class="status-message">Click play to start music.</p>
+      </div>
+
+      <div class="progress-group">
+        <span id="current-time">0:00</span>
+        <div class="progress-bar" id="progress-container">
+          <div class="progress" id="progress"></div>
+        </div>
+        <span id="duration">0:00</span>
+      </div>
+
+      <div class="controls-row">
+        <button class="control-btn" id="prev-btn" title="Previous track">⏮</button>
+        <button class="control-btn control-btn--big" id="play-btn" title="Play / Pause">▶</button>
+        <button class="control-btn" id="next-btn" title="Next track">⏭</button>
+      </div>
+
+      <div class="extras-row">
+        <label class="volume-group">
+          <span>Volume</span>
+          <input type="range" id="volume" min="0" max="1" step="0.01" value="0.8" />
+        </label>
+      </div>
+    </section>
+
+    <aside class="playlist-panel">
+      <div class="add-song-panel">
+        <h2>Add song</h2>
+        <label class="input-label">
+          Title
+          <input id="new-title" type="text" placeholder="Song title" />
+        </label>
+        <label class="input-label">
+          Artist
+          <input id="new-artist" type="text" placeholder="Artist name" />
+        </label>
+        <label class="input-label">
+          Audio URL
+          <input id="new-url" type="url" placeholder="https://example.com/song.mp3" />
+        </label>
+        <label class="input-label">
+          Audio file
+          <input id="new-file" type="file" accept="audio/*" />
+        </label>
+        <button id="add-song-btn" class="add-btn">Add song</button>
+      </div>
+
+      <div class="playlist-header">
+        <h2>Playlist</h2>
+        <p>Click a song to play it.</p>
+      </div>
+      <ul id="playlist" class="playlist"></ul>
+    </aside>
+  </main>
+
+  <audio id="audio" preload="metadata"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
